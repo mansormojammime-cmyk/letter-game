@@ -1,0 +1,441 @@
+body {
+    background: #1c1c1c;
+    color: white;
+    font-family: "Cairo", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#mainMenu {
+    margin-top: 80px;
+}
+
+
+
+.menu-btn {
+    padding: 12px 30px;
+    background: #444;
+    border: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+.menu-btn:hover {
+    background: #666;
+}
+
+#board {
+    margin: 5px auto;
+    width: fit-content;
+}
+
+.board-row {
+    display: flex;
+}
+
+.cell {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #333;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.cell-shape {
+    width: 70px;
+    height: 50px;
+    background: #f5deb3;
+    margin: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.square {
+    border-radius: 0;
+}
+.circle {
+    border-radius: 50%;
+}
+
+.hex {
+    clip-path: polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
+
+.hex-row {
+    display: flex;
+    justify-content: center;
+}
+
+.hex-row.offset {
+    margin-right: 45px;
+}
+
+.playable {
+    background: #222;
+    cursor: pointer;
+}
+.playable:hover {
+    background: #333;
+}
+
+.red {
+    background: #d62828 !important;
+    color: white;
+}
+.green {
+    background: #2a9d8f !important;
+    color: white;
+}
+
+.border-red {
+    background: #d62828 !important;
+    color: white;
+}
+
+.border-green {
+    background: #2a9d8f !important;
+    color: white;
+}
+.no-click {
+    pointer-events: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#questionOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;              /* مهم جدًا */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    pointer-events: none;
+
+}
+
+#questionOverlay:not(.hidden) {
+    display: flex !important;   /* هنا السر */
+}
+
+#qText {
+    color: white;
+}
+
+.choiceBtn {
+    color: white;
+}
+
+.choiceBtn {
+    padding: 12px 25px;
+    margin: 10px;
+    background: #444;
+    border: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.choiceBtn:hover {
+    background: #666;
+}
+
+#timerValue {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#winnerOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#winnerText {
+    font-size: 50px;
+}
+
+.win-cell {
+    animation: flash 0.5s infinite alternate;
+}
+@keyframes flash {
+    from { box-shadow: 0 0 10px white; }
+    to   { box-shadow: 0 0 25px yellow; }
+}
+
+.particle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: yellow;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: explode 0.9s linear forwards;
+}
+@keyframes explode {
+    from { opacity: 1; }
+    to   { opacity: 0; transform: scale(0.2); }
+}
+
+.camera-effect {
+    animation: shake 0.4s;
+}
+@keyframes shake {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(5px,-5px); }
+    50% { transform: translate(-5px,5px); }
+    75% { transform: translate(5px,5px); }
+    100% { transform: translate(0,0); }
+}
+
+.score-box {
+    margin-top: 10px;
+    font-size: 20px;
+}
+.particle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: gold;
+    border-radius: 50%;
+    box-shadow: 0 0 10px gold;
+    animation: explode 0.9s ease-out forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.2); opacity: 0; }
+}
+
+#winnerOverlay {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999999 !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#congratsMessage {
+    font-size: 60px;
+    color: gold;
+    font-weight: bold;
+    text-shadow: 0 0 20px gold, 0 0 40px orange;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+#winnerText {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#returnButton {
+    padding: 15px 40px;
+    font-size: 24px;
+    background: #28a745;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+#returnButton:hover {
+    background: #1e7e34;
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#buzzers {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    pointer-events: auto;
+
+
+}
+
+.buzz-btn {
+    padding: 15px 35px;
+    font-size: 26px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.buzz-btn.red { background: #d62828; }
+.buzz-btn.green { background: #2a9d8f; }
+
+.buzz-btn:hover { transform: scale(1.1); }
+
+#buzzIndicator {
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+.indicator {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.2;
+    transition: 0.3s;
+}
+
+.cell {
+    position: relative;
+    overflow: visible;
+}
+.cell {
+    position: relative;
+    overflow: visible;
+}
+.cell.playable {
+    pointer-events: auto !important;
+}
+
+
+#choicesContainer {
+    pointer-events: auto;
+}
+/* وميض ذهبي متحرك حول السؤال */
+.golden-glow {
+    animation: goldenPulse 1.2s infinite alternate;
+}
+
+@keyframes goldenPulse {
+    0% {
+        text-shadow: 0 0 8px gold, 0 0 12px gold;
+        color: #ffd700;
+    }
+    100% {
+        text-shadow: 0 0 20px #ffea00, 0 0 30px #ffea00;
+        color: #fff8b0;
+    }
+}
+
+/* انفجار ذهبي */
+@keyframes goldenExplosion {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 10px gold;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+        box-shadow: 0 0 40px gold;
+    }
+}
+
+.golden-explosion {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, gold, transparent);
+    animation: goldenExplosion 0.6s ease-out forwards;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#timerCircle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 10px auto;
+}
+
+#timerText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+}
+
+#timerRing {
+    stroke-dasharray: 314; /* 2πr = 2*3.14*50 */
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+}
+
+.golden-banner {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 15px gold, 0 0 30px yellow;
+    background: rgba(0,0,0,0.7);
+    padding: 20px 40px;
+    border-radius: 20px;
+    z-index: 99999;
+    animation: goldenFlash 1s infinite alternate;
+}
+
+@keyframes goldenFlash {
+    0% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+.hidden {
+    display: none;
+}
+
+.indicator.red { background: #d62828; }
+.indicator.green { background: #2a9d8f; }
+
+.indicator.active { opacity: 1; box-shadow: 0 0 20px white; }

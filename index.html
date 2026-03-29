@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لعبة الحروف المطوّرة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- القائمة الرئيسية -->
+    <div id="mainMenu">
+        <h1>لعبة الحروف</h1>
+        <button id="startGameBtn" class="menu-btn">ابدأ اللعبة</button>
+        <button id="aiToggle" class="menu-btn">تشغيل الكمبيوتر</button>
+    </div>
+
+    <!-- منطقة اللعبة -->
+    <div id="gameArea" style="display:none;">
+
+        
+
+        <div class="score-box">
+            مستوى: <span id="levelValue">1</span>
+        </div>
+
+        <div class="score-box">
+            نقاط الأحمر: <span id="redPoints">0</span> —
+            نقاط الأخضر: <span id="greenPoints">0</span>
+        </div>
+
+        <div class="score-box">
+            
+        </div>
+        <div class="score-box">
+            خلايا الأحمر: <span id="redCount">0</span> —
+            خلايا الأخضر: <span id="greenCount">0</span>
+        </div>
+
+        <div id="board"></div>
+
+        <button id="exitBtnBottom" class="menu-btn">خروج</button>
+    </div>
+    <div id="goldenQuestionBanner" class="golden-banner hidden">
+    هذا سؤال ذهبي!
+</div>
+
+<div id="goldenWinBanner" class="golden-banner hidden">
+    مبروك! لقد حصلت على سبيكة ذهبية!
+</div>
+
+<audio id="goldenQuestionSound" src="sounds/golden_question.mp3"></audio>
+<audio id="goldenWinSound" src="sounds/golden_win.mp3"></audio>
+    <!-- شاشة السؤال -->
+    <div id="questionOverlay" class="hidden">
+        <div id="buzzers" class="hidden">
+            <div id="turn"></div>
+    <button id="redBuzz" class="buzz-btn red">فريق الأحمر</button>
+    <button id="greenBuzz" class="buzz-btn green">فريق الأخضر</button>
+</div>
+
+<div id="buzzIndicator" class="hidden">
+    <div id="redIndicator" class="indicator red"></div>
+    <div id="greenIndicator" class="indicator green"></div>
+</div>
+        <h2 id="qText"></h2>
+        <div id="timerCircle">
+    <svg width="120" height="120">
+        <circle id="timerBg" cx="60" cy="60" r="50" stroke="#444" stroke-width="10" fill="none"/>
+        <circle id="timerRing" cx="60" cy="60" r="50" stroke="gold" stroke-width="10" fill="none"
+                stroke-linecap="round" transform="rotate(-90 60 60)"/>
+    </svg>
+    <div id="timerText">10</div>
+</div>
+        <div id="choicesContainer"></div>
+    </div>
+
+    <!-- شاشة الفوز (خارج gameArea) -->
+    <div id="winnerOverlay" class="hidden">
+        <div id="congratsMessage" class="hidden">🎉 مبروووك! 🎉</div>
+        <div id="winnerText"></div>
+        <button id="returnButton">رجوع</button>
+    </div>
+
+    <!-- الأصوات -->
+    <audio id="soundCorrect" src="sounds/correct.mp3"></audio>
+    <audio id="soundWrong" src="sounds/wrong.mp3"></audio>
+    <audio id="hbSlow" src="sounds/hb1.mp3"></audio>
+    <audio id="hbMed" src="sounds/hb2.mp3"></audio>
+    <audio id="hbFast" src="sounds/hb3.mp3"></audio>
+    <audio id="winSound" src="sounds/win.mp3"></audio>
+    
+
+
+
+    <script src="questions.js"></script>
+    <script src="game.js"></script>
+
+</body>
+</html>
