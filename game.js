@@ -200,8 +200,10 @@ if (isGolden) {
     // بناء الاختيارات
     const container = document.getElementById("choicesContainer");
     container.innerHTML = "";
-const goldenBanner = document.getElementById("goldenQuestionBanner");
-const goldenSound = document.getElementById("goldenQuestionSound");
+    const goldenBanner = document.getElementById("goldenQuestionBanner");
+    const goldenSound = document.getElementById("goldenSound");
+
+
 
 if (isGolden) {
     goldenBanner.classList.remove("hidden");
@@ -392,7 +394,9 @@ function checkAnswer(selected, correct, questionObj) {
         // ============================
         if (isGolden) {
             const winBanner = document.getElementById("goldenWinBanner");
-            const winSound = document.getElementById("goldenWinSound");
+            const winSound = document.getElementById("goldenWin");
+
+
 
             winBanner.classList.remove("hidden");
             winSound.currentTime = 0;
@@ -785,7 +789,15 @@ window.onload = () => {
     hbSlow      = document.getElementById("hbSlow");
     hbMed       = document.getElementById("hbMed");
     hbFast      = document.getElementById("hbFast");
+   
     winSound    = document.getElementById("winSound");
+    
+    
+    
+   
+
+
+
 
     createBoard();
     updateScore();
