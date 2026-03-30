@@ -201,7 +201,7 @@ if (isGolden) {
     const container = document.getElementById("choicesContainer");
     container.innerHTML = "";
     const goldenBanner = document.getElementById("goldenQuestionBanner");
-    const goldenSound = document.getElementById("goldenSound");
+    
 
 
 
@@ -394,7 +394,7 @@ function checkAnswer(selected, correct, questionObj) {
         // ============================
         if (isGolden) {
             const winBanner = document.getElementById("goldenWinBanner");
-            const winSound = document.getElementById("goldenWin");
+           const winSound= document.getElementById("goldenWin"); 
 
 
 
@@ -789,9 +789,9 @@ window.onload = () => {
     hbSlow      = document.getElementById("hbSlow");
     hbMed       = document.getElementById("hbMed");
     hbFast      = document.getElementById("hbFast");
-   
+     
     winSound    = document.getElementById("winSound");
-    
+    goldenSound = document.getElementById("goldenSound");
     
     
    
