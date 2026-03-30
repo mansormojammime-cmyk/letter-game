@@ -95,6 +95,15 @@
 
     <script src="questions.js"></script>
     <script src="game.js"></script>
-
+<script>
+document.body.addEventListener("click", () => {
+    const audios = document.querySelectorAll("audio");
+    audios.forEach(a => {
+        a.play().catch(()=>{});
+        a.pause();
+        a.currentTime = 0;
+    });
+}, { once: true });
+</script>
 </body>
 </html>
