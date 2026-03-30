@@ -788,8 +788,7 @@ window.onload = () => {
     soundResult = document.getElementById("soundResult");
     hbSlow      = document.getElementById("hbSlow");
     hbMed       = document.getElementById("hbMed");
-    hbFast      = document.getElementById("hbFast");
-     
+    hbFast      = document.getElementById("hbFast"); 
     winSound    = document.getElementById("winSound");
     goldenSound = document.getElementById("goldenSound");
     
